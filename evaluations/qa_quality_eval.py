@@ -46,6 +46,7 @@ def main():
     print(responses.head(10))
 
     # Convert to jsonl
+    print(responses.columns)
     relevant_columns = responses[['inputs.question', 'inputs.chat_history', 'outputs.answer', 'outputs.context']]
     relevant_columns.columns = ['question', 'chat_history', 'answer', 'context']
     data_list = relevant_columns.to_dict(orient='records')
